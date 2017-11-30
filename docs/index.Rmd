@@ -43,5 +43,71 @@ ggplot(data = mpg, aes(x = displ, y = hwy, shape=class)) +
 
 ## `size`
 
+```{r size}
+#?mpg
+ggplot(data = mpg, aes(x = cty, y = hwy, size = class, color = fl)) + 
+  geom_point(alpha = 0.2)
+```
+
+
+```{r fix color}
+#?mpg
+ggplot(data = mpg, aes(x = cty, y = hwy, size = class)) + 
+  geom_point(alpha = 0.2, color = "blue")
+```
+
+## Exercise
+
+```{r exercise 1}
+
+ggplot(data = mpg) + 
+      geom_point(aes(x = displ, y = hwy), color = "blue")
+
+ggplot(data = mpg) + 
+      geom_point(aes(x = displ, y = hwy, color = displ < 5))
+```
+
+## Geoms
+
+```{r geom_examples}
+
+ggplot(mpg, aes(x = drv, y = hwy)) +
+  geom_violin()
+
+```
+
+## Multiple geoms
+
+```{r mult_geoms}
+
+ggplot(data = mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  geom_smooth(aes(x = displ, y = hwy))
+
+?geom_smooth
+
+ggplot(data = mpg, aes(x = displ, y = hwy))+
+  geom_point() +
+  geom_smooth()
+```
+
+## Customization
+
+```{r customize}
+
+ggplot(data = mpg, aes(x = displ, y = hwy))+
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Relationship b/w engine size & MPG",
+       x = "Highway MPG",
+       y = "Engine displacement (liters)") +
+  theme_bw() +
+  theme(text = element_text(size = 16))
+
+```
+
+
+
+
 ## Boxplot
 
