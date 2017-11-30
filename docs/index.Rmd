@@ -95,7 +95,7 @@ ggplot(data = mpg, aes(x = displ, y = hwy))+
 
 ```{r customize}
 
-ggplot(data = mpg, aes(x = displ, y = hwy))+
+ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point() +
   geom_smooth() +
   labs(title = "Relationship b/w engine size & MPG",
@@ -103,11 +103,23 @@ ggplot(data = mpg, aes(x = displ, y = hwy))+
        y = "Engine displacement (liters)") +
   theme_bw() +
   theme(text = element_text(size = 16))
-
 ```
 
 
-
-
 ## Boxplot
+
+
+# dplyr
+
+```{r}
+gapminder <- readr::read_csv('https://raw.githubusercontent.com/jules32/2017-11-30-MBARI/gh-pages/data/gapminder.csv') 
+
+y <- gapminder %>%
+  filter(country == "Sweden") %>%
+  summarize(
+    mean_lifeExp = mean(lifeExp))
+
+y
+```
+
 

@@ -310,7 +310,7 @@ ggplot(data = mpg, aes(x = displ, y = hwy))+
 </div>
 <div id="customization" class="section level2">
 <h2>Customization</h2>
-<pre class="r"><code>ggplot(data = mpg, aes(x = displ, y = hwy))+
+<pre class="r"><code>ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point() +
   geom_smooth() +
   labs(title = &quot;Relationship b/w engine size &amp; MPG&quot;,
@@ -323,6 +323,29 @@ ggplot(data = mpg, aes(x = displ, y = hwy))+
 </div>
 <div id="boxplot" class="section level2">
 <h2>Boxplot</h2>
+</div>
+<div id="dplyr" class="section level1">
+<h1>dplyr</h1>
+<pre class="r"><code>gapminder &lt;- readr::read_csv('https://raw.githubusercontent.com/jules32/2017-11-30-MBARI/gh-pages/data/gapminder.csv') </code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   country = col_character(),
+##   year = col_integer(),
+##   pop = col_double(),
+##   continent = col_character(),
+##   lifeExp = col_double(),
+##   gdpPercap = col_double()
+## )</code></pre>
+<pre class="r"><code>y &lt;- gapminder %&gt;%
+  filter(country == &quot;Sweden&quot;) %&gt;%
+  summarize(
+    mean_lifeExp = mean(lifeExp))
+
+y</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   mean_lifeExp
+##          &lt;dbl&gt;
+## 1       76.177</code></pre>
 </div>
 
 
