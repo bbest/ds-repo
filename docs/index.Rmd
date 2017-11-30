@@ -15,17 +15,33 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-## Scatterplot
+## `geom_point`
 
 ```{r scatterplot}
 # data()
 # ?mpg
 #mpg
-g <- ggplot(data = mpg, aes(x = displ, y = hwy))
-g + geom_point()
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point()
 ```
 
-### I need color!
+### `color`!
+
+```{r color}
+ggplot(data = mpg, aes(x = displ, y = hwy, color=class)) + 
+  geom_point()
+```
+
+### `shape`: need a b&w figure
+
+Changed `color` to `shape`:
+
+```{r b&w}
+ggplot(data = mpg, aes(x = displ, y = hwy, shape=class)) + 
+  geom_point()
+```
+
+## `size`
 
 ## Boxplot
 
