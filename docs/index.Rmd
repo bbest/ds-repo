@@ -120,6 +120,20 @@ y <- gapminder %>%
     mean_lifeExp = mean(lifeExp))
 
 y
+
+gapminder %>%
+  filter(country == c("Egypt", "Vietnam"))
+
+
+gapminder %>%
+  filter(country %in% c("Egypt", "Vietnam"))
+
+# find max gdpPercap of Egypt and Vienam
+gapminder %>%
+  group_by(country) %>%
+  filter(
+    country %in% c("Egypt", "Vietnam"),
+    gdpPercap == max(gdpPercap))
 ```
 
 

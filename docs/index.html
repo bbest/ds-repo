@@ -346,6 +346,51 @@ y</code></pre>
 ##   mean_lifeExp
 ##          &lt;dbl&gt;
 ## 1       76.177</code></pre>
+<pre class="r"><code>gapminder %&gt;%
+  filter(country == c(&quot;Egypt&quot;, &quot;Vietnam&quot;))</code></pre>
+<pre><code>## # A tibble: 12 x 6
+##    country  year      pop continent lifeExp gdpPercap
+##      &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1   Egypt  1952 22223309    Africa  41.893 1418.8224
+##  2   Egypt  1962 28173309    Africa  46.992 1693.3359
+##  3   Egypt  1972 34807417    Africa  51.137 2024.0081
+##  4   Egypt  1982 45681811    Africa  56.006 3503.7296
+##  5   Egypt  1992 59402198    Africa  63.674 3794.7552
+##  6   Egypt  2002 73312559    Africa  69.806 4754.6044
+##  7 Vietnam  1957 28998543      Asia  42.887  676.2854
+##  8 Vietnam  1967 39463910      Asia  47.838  637.1233
+##  9 Vietnam  1977 50533506      Asia  55.764  713.5371
+## 10 Vietnam  1987 62826491      Asia  62.820  820.7994
+## 11 Vietnam  1997 76048996      Asia  70.672 1385.8968
+## 12 Vietnam  2007 85262356      Asia  74.249 2441.5764</code></pre>
+<pre class="r"><code>gapminder %&gt;%
+  filter(country %in% c(&quot;Egypt&quot;, &quot;Vietnam&quot;))</code></pre>
+<pre><code>## # A tibble: 24 x 6
+##    country  year      pop continent lifeExp gdpPercap
+##      &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1   Egypt  1952 22223309    Africa  41.893  1418.822
+##  2   Egypt  1957 25009741    Africa  44.444  1458.915
+##  3   Egypt  1962 28173309    Africa  46.992  1693.336
+##  4   Egypt  1967 31681188    Africa  49.293  1814.881
+##  5   Egypt  1972 34807417    Africa  51.137  2024.008
+##  6   Egypt  1977 38783863    Africa  53.319  2785.494
+##  7   Egypt  1982 45681811    Africa  56.006  3503.730
+##  8   Egypt  1987 52799062    Africa  59.797  3885.461
+##  9   Egypt  1992 59402198    Africa  63.674  3794.755
+## 10   Egypt  1997 66134291    Africa  67.217  4173.182
+## # ... with 14 more rows</code></pre>
+<pre class="r"><code># find max gdpPercap of Egypt and Vienam
+gapminder %&gt;%
+  group_by(country) %&gt;%
+  filter(
+    country %in% c(&quot;Egypt&quot;, &quot;Vietnam&quot;),
+    gdpPercap == max(gdpPercap))</code></pre>
+<pre><code>## # A tibble: 2 x 6
+## # Groups:   country [2]
+##   country  year      pop continent lifeExp gdpPercap
+##     &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1   Egypt  2007 80264543    Africa  71.338  5581.181
+## 2 Vietnam  2007 85262356      Asia  74.249  2441.576</code></pre>
 </div>
 
 
